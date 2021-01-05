@@ -1,0 +1,101 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_10ca7/fast && /usr/bin/make -f CMakeFiles/cmTC_10ca7.dir/build.make CMakeFiles/cmTC_10ca7.dir/build
+make[1]: Entering directory '/home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_10ca7.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_10ca7.dir/src.c.o   -c /home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_10ca7
+/opt/cmake-3.16.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_10ca7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_10ca7.dir/src.c.o  -o cmTC_10ca7 
+CMakeFiles/cmTC_10ca7.dir/src.c.o：在函数‘main’中：
+src.c:(.text+0x3c)：对‘pthread_create’未定义的引用
+src.c:(.text+0x48)：对‘pthread_detach’未定义的引用
+src.c:(.text+0x59)：对‘pthread_join’未定义的引用
+src.c:(.text+0x6d)：对‘pthread_atfork’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_10ca7.dir/build.make:86: recipe for target 'cmTC_10ca7' failed
+make[1]: *** [cmTC_10ca7] Error 1
+make[1]: Leaving directory '/home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_10ca7/fast' failed
+make: *** [cmTC_10ca7/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f2f56/fast && /usr/bin/make -f CMakeFiles/cmTC_f2f56.dir/build.make CMakeFiles/cmTC_f2f56.dir/build
+make[1]: Entering directory '/home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f2f56.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f2f56.dir/CheckFunctionExists.c.o   -c /opt/cmake-3.16.2/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f2f56
+/opt/cmake-3.16.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f2f56.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_f2f56.dir/CheckFunctionExists.c.o  -o cmTC_f2f56  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f2f56.dir/build.make:86: recipe for target 'cmTC_f2f56' failed
+make[1]: *** [cmTC_f2f56] Error 1
+make[1]: Leaving directory '/home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_f2f56/fast' failed
+make: *** [cmTC_f2f56/fast] Error 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8738c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8738c.dir/build.make CMakeFiles/cmTC_8738c.dir/build
+make[1]: Entering directory '/home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake: /usr/local/lib/libcurl.so.4: no version information available (required by /usr/bin/cmake)
+Building C object CMakeFiles/cmTC_8738c.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_8738c.dir/CheckSymbolExists.c.o   -c /home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/usr/bin/cmake: /usr/local/lib/libcurl.so.4: no version information available (required by /usr/bin/cmake)
+Linking C executable cmTC_8738c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8738c.dir/link.txt --verbose=1
+/usr/bin/cmake: /usr/local/lib/libcurl.so.4: no version information available (required by /usr/bin/cmake)
+/usr/bin/cc       CMakeFiles/cmTC_8738c.dir/CheckSymbolExists.c.o  -o cmTC_8738c -rdynamic 
+CMakeFiles/cmTC_8738c.dir/CheckSymbolExists.c.o：在函数‘main’中：
+CheckSymbolExists.c:(.text+0x16)：对‘pthread_create’未定义的引用
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_8738c.dir/build.make:97: recipe for target 'cmTC_8738c' failed
+make[1]: *** [cmTC_8738c] Error 1
+make[1]: Leaving directory '/home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8738c/fast' failed
+make: *** [cmTC_8738c/fast] Error 2
+
+File /home/hlx/libtorch_tut/autograd/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
