@@ -11,4 +11,4 @@ use vscode to open the AUTOGRAD dirctory and press the F5 to run the file(if you
 
 show attention to the vscode .vscode dir.
 
-
+...build$ ./autograd
